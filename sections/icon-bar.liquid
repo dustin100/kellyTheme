@@ -1,0 +1,82 @@
+{{ 'section-icon-bar.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width icon-bar-wrapper">
+    <div class="icon-section">
+        {% for block in section.blocks %}
+            <div class="icon-wrapper"> 
+                <div class="single-icon">
+                    <img
+                    srcset="{{ block.settings.image | img_url: '100x' }}"
+                    loading="lazy"
+                    alt="{{ block.settings.image.alt | escape }}"
+                    width="100"
+                    height="100"
+                    
+                    />
+                </div>
+                <div class="icon-text">{{block.settings.icon-title}}</div>
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Icon Bar",
+  "tag": "section",
+  "class": "spaced-section icon-bar",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "default": "Offerings",
+        "label": "t:sections.featured-collection.settings.title.label"
+    },
+    
+    {
+      "type": "range",
+      "id": "icons_to_show",
+      "min": 2,
+      "max": 6,
+      "step": 2,
+      "default": 4,
+      "label": "Number of Icons to Show"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "default": false,
+      "label": "Hide on Mobile"
+    }
+  ],
+
+  "blocks": [
+  {
+    "type": "Text",
+    "name": "Icon",
+    "limit": 6,
+    "settings": [
+      {
+        "type": "text",
+        "id": "icon-title",
+        "default": "icon text",
+        "label": "Icon Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.image-banner.settings.image.label"
+      }
+    ]
+  }
+  ],
+  
+  "presets": [
+    {
+      "name": "Icon Bar"
+    }
+  ]
+}
+{% endschema %}

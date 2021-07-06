@@ -1,0 +1,29 @@
+/* Icon Bar */
+.icon-bar {
+	background: red;
+}
+
+.icon-bar-wrapper {
+    padding: 2rem 0;
+}
+
+.icon-section {
+	display: flex;
+	justify-content: space-between;
+}
+.single-icon {
+	height: 100px;
+}
+.single-icon img {
+	width: 100%;
+    height: 100%;
+	object-fit: cover;
+	margin-bottom: 10px;
+}
+
+.icon-wrapper {
+	text-align: center;
+	color: #fff;
+	margin-bottom: 10px;
+	width: 100px;
+}
